@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'rails', '5.0.2'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -17,6 +16,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'kaminari', '~> 0.17.0'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.0'
+gem 'sqlite3'
 
 
 
@@ -38,10 +38,11 @@ group :development do
   gem 'spring'
   gem 'pry-rails'
   gem "meta_request"
-  gem 'sqlite3'
 end
+
 
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end

@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
           <label>Location</label>
-          <%= text_field_tag :location, nil, placeholder: "Osaka, umeda, etc", class: "form-control input-lg" %>
+          <%= text_field_tag :location, nil, placeholder: "Georgetown, Penang, etc", class: "form-control input-lg" %>
         </div>
         <br>
         <%= submit_tag "Search", class: "btn btn-primary btn-block input-lg" %>
@@ -43,7 +43,7 @@
               <p>Google enterprises</p>
             </td>
             <td>
-              <p><i class="glyphicon glyphicon-calendar"><%= gig.created_at %></i></p>
+              <p><i class="glyphicon glyphicon-calendar"><%= gig.created_at.strftime("%b %d, %Y") %></i></p>
               <p><i class="glyphicon glyphicon-map-marker"></i><%= gig.location %></p>
             </td>
           </tr>

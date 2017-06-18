@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  #"welcome#about"
+
+  #render "welcome/about"
   root "gigs#index"
 
   get "mygigs" => "gigs#mygigs"

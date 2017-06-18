@@ -48,7 +48,7 @@
               <p>Skills: <%= gig.skills.map { |s| s.name }.join(", ") %></p>
             </td>
             <td>
-              <%= gig.category.name %>
+              <%= gig.category.name if gig.category %>
             </td>
             <td>
               <p><i class="fa fa-calendar"> <%= gig.created_at.strftime("%b %d, %Y")%></i></p>

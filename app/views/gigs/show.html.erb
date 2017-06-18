@@ -59,9 +59,9 @@
             <div class="panel-heading">
               <div class="row">
                 <div class="col-md-4">
-                  <h3 class="panel-title"><%= @awarded_proposal.user %></h3>
+                  <h3 class="panel-title"><%= @awarded_proposal.users.name  if @awarded_proposal.user %></h3>  
                 </div>
-                <div class="col-md-4">
+                  <div class="col-md-4">
                   <h3 class="panel-title">
                     Bid: <%= number_to_currency(@awarded_proposal.bid, precision: 0) %>
                   </h3>

@@ -180,7 +180,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../images/header.jpg');
+  background-image: url('header.jpg');
   text-align: center;
   color: white;
 }
@@ -243,10 +243,12 @@ header .header-content .header-content-inner p {
 @media (min-width: 992px) {
   .service-box {
     margin: 20px auto 0;
+
   }
 }
 .service-box p {
   margin-bottom: 0;
+  color: white;
 }
 .portfolio-box {
   position: relative;
@@ -414,6 +416,13 @@ fieldset[disabled] .btn-primary.active {
   border-radius: 300px;
   font-weight: 700;
   text-transform: uppercase;
+}
+.btn2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px
 }
 .btn-xl {
   padding: 15px 30px;

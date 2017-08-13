@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   end
 
   #render "welcome/about"
-  root "gigs#index"
+  #root "gigs#index"
+  root "welcome#about"
 
   get "mygigs" => "gigs#mygigs"
 

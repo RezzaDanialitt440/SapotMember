@@ -2,14 +2,15 @@ class GigsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search, :show]
 
   def index
-    @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(25)
+    @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(12)
     @users = User.all
   end
 
   def show
     @gig = Gig.find(params[:id])
-    @proposals = @gig.proposals.order("created_at DESC")
+    @proposals = @gig.proposals.order("created_at DESC").joins(:user)
     @awarded_proposal = Proposal.where(id: @gig.awarded_proposal).first
+    #@awarded_proposal = @gig.proposals.order("created_at DESC").joins(:users).joins(:gigs).where(gig_id: params[:id])
   end
 
   def new
@@ -58,9 +59,9 @@ class GigsController < ApplicationController
 
   def search
     if params[:category].blank? && params[:search].blank?
-      @gigs = Gig.all.order("created_at desc").page(params[:page]).per(25)
+      @gigs = Gig.all.order("created_at desc").page(params[:page]).per(12)
     else
-      @gigs = Gig.search(params).page(params[:page]).per(25)
+      @gigs = Gig.search(params).page(params[:page]).per(12)
     end
   end
 

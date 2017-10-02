@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   #render "welcome/about"
   #root "gigs#index"
-  # root "welcome#about"
+  root "welcome#about"
 
   get "mygigs" => "gigs#mygigs"
 

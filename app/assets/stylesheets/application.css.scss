@@ -32,6 +32,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: #365fb1;
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
@@ -134,6 +135,7 @@ aside {
   .navbar-default {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
+    margin-top: 10px
   }
   .navbar-default .navbar-header .navbar-brand {
     color: rgba(255, 255, 255, 0.7);

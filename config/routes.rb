@@ -14,9 +14,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    get :profile, on: :collection
+  end
+
   #render "welcome/about"
   #root "gigs#index"
-  root "welcome#about"
+  # root "welcome#about"
 
   get "mygigs" => "gigs#mygigs"
 

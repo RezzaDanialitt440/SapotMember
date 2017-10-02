@@ -21,6 +21,9 @@ class GigsController < ApplicationController
     @gig = Gig.new(gig_params)
     @gig.user = current_user
     if @gig.save
+      User.all.each do |user|
+        NewGigMailer.send_mail(user).deliver
+      end
       redirect_to @gig
     else
       flash[:error] = @gig.errors.full_messages.to_sentence

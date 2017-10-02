@@ -3,7 +3,6 @@ class NewGigMailer < ApplicationMailer
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_mail(user)
     @user = user
-    mail( :to => "bilal@goget.my",
-    :subject => 'New GIG' )
+    mail( :to => user.email, :subject => 'New GIG' )
   end
 end

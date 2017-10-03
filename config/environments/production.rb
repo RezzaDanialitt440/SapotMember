@@ -78,8 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :user_name => "Bilal1122",
-    :password =>  "Dangerous12",
+    :user_name => "andy_gg1996",
+    :password =>  "466bva9740kw73",
     :domain => 'heroku.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,

@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+// Loads all Semantic javascripts
+//= require semantic-ui
 //= require_tree .
 (function($) {
     "use strict"; // Start of use strict

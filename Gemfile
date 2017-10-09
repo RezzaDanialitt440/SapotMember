@@ -18,6 +18,12 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.0'
 gem "slim-rails"
 gem "letter_opener", :group => :development
+gem 'pg'
+gem 'carrierwave', '~> 1.0'
+gem 'semantic-ui-sass'
+gem 'pry-byebug'
+gem 'pry-rails'
+gem 'rails_admin', '~> 1.2'
 
 group :development, :test do
   gem 'byebug'
@@ -29,7 +35,6 @@ group :development, :test do
   gem 'rails-erd', '~> 1.4', '>= 1.4.7'
   gem 'awesome_print', '~> 1.7'
   gem 'faker', '~> 1.6', '>= 1.6.3'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -40,6 +45,5 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end

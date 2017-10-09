@@ -1,1 +1,47 @@
-h1 wowo
+.profile
+  .profile_div style="padding: 36px;color:white;"
+    h1 Profile
+    = form_for(:profile, url: edit_profile_users_path, method: :post, html: { autocomplete: "off" }) do |f|
+      .avatar_uploader_block
+        -if current_user.avatar.present?
+          = image_tag current_user.avatar, class: 'profile_avatar'
+        -else
+          = image_tag image_url('default-img.png'), class: 'profile_avatar'
+      br
+      = f.file_field :avatar
+      h1 About
+      = f.text_area :about, value: current_user.about,placeholder:"Tell us about yourself", style: "width: 100%;height: 100px;padding: 16px;"
+      = f.submit "Save Profile", class: "ui primary button", style: "float: right;background: #f15f41;"
+
+    br
+    br
+    .white_div
+      h4 
+        |Education
+        = link_to "Add Education", "#", class: "ui button education_edit", id: "education"
+      -if current_user.educations.present?
+        -current_user.educations.each do |education|
+          .sub_div style="padding: 16px 27px 17px 27px;border: 1px solid rgba(128, 128, 128, 0.37);margin-top: 25px;"
+            h4 = education.institure_name
+            p style="margin-top: -15px;" = education.description
+
+    .white_div
+      h4 
+        |Skills
+        = link_to "Add Skills", "#", class: "ui button education_edit"
+
+  .ui.small.modal.education style="text-align: center;padding: 55px;height: 394px;"
+    h3 Add Education
+    = form_for(:education, url: edit_profile_users_path, method: :post, html: { autocomplete: "off" }) do |f|
+      = f.text_field :institure_name, placeholder: "Name of Institute",required: true, style: "width: 100%;height: 46px;padding: 16px;margin-bottom: 27px;margin-top: 14px;"
+      = f.text_area :description, placeholder: "About Institute", required: true, style: "width: 100%;height: 100px;padding: 16px;"
+      br
+      br
+      = f.submit "Save", class: "ui primary button", style: "float: right;background: #f15f41;"
+
+  javascript:
+
+    $('#education').on('click', function(evt) {
+      $(".ui.small.modal.education").modal('show');
+      return evt.preventDefault();
+    });

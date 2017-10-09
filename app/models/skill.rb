@@ -1,4 +1,2 @@
-class Skill < ActiveRecord::Base
-  has_many :abilities
-  has_many :gigs, through: :abilities
+class Skill < ApplicationRecord
 end

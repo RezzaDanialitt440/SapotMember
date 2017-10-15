@@ -31,7 +31,7 @@
               p style="margin-top: -15px;" = education.description
             .edit_education_details.hide id="edit_education_details#{education.id}"
               = form_for(:education, url: edit_profile_users_path, method: :post, html: { autocomplete: "off" }) do |f|
-                = f.text_field :id, value: education.id
+                = f.hidden_field :id, value: education.id
                 = f.text_field :institure_name, value: education.institure_name,required: true, style: "width: 100%;height: 46px;padding: 16px;margin-bottom: 27px;margin-top: 14px;"
                 = f.text_area :description, value:  education.description, required: true, style: "width: 100%;height: 100px;padding: 16px;"
                 br
@@ -72,7 +72,7 @@
         .button.ui.primary.gray.basic.button id="#{skill.name}" style="margin-bottom: 16px;margin-right: 20px;#{style}"
           = skill.name
       = form_for(:user_skills, url: edit_profile_users_path, method: :post, html: { autocomplete: "off" }) do |f|
-        = f.text_area :skill, placeholder: "About Institute", value: value, required: true, style: "width: 100%;height: 100px;padding: 16px;"
+        = f.hidden_field :skill, placeholder: "About Institute", value: value, required: true, style: "width: 100%;height: 100px;padding: 16px;"
         br
         br
         = f.submit "Save", class: "ui primary button", style: "float: right;background: #f15f41;"

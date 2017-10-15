@@ -10,7 +10,10 @@
       br
       = f.file_field :avatar
       h1 About
-      = f.text_area :about, value: current_user.about,placeholder:"Tell us about yourself", style: "width: 100%;height: 100px;padding: 16px;"
+      -if current_user.about.present?
+        = f.text_area :about, value: current_user.about,placeholder:"Tell us about yourself", style: "width: 100%;height: 100px;padding: 16px;"
+      -else
+        = f.text_area :about,placeholder:"Tell us about yourself", style: "width: 100%;height: 100px;padding: 16px;"
       = f.submit "Save Profile", class: "ui primary button", style: "float: right;background: #f15f41;"
     br
     br

@@ -24,6 +24,7 @@ gem 'semantic-ui-sass'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'rails_admin', '~> 1.2'
+gem "pundit"
 
 group :development, :test do
   gem 'byebug'

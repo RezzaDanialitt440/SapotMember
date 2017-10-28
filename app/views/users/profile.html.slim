@@ -1,5 +1,7 @@
 .profile
   .profile_div style="padding: 36px;color:white;"
+    -if current_user.admin == true
+      = link_to "Admin Page", rails_admin_path, class: "ui teal button", style:"float:right;", target: :_blank
     h1 Profile
     = form_for(:profile, url: edit_profile_users_path, method: :post, html: { autocomplete: "off" }) do |f|
       .avatar_uploader_block
@@ -78,33 +80,33 @@
         = f.submit "Save", class: "ui primary button", style: "float: right;background: #f15f41;"
         =link_to "Cancel", "", class: "ui primary button", style: "float:right;background: gray;"
 
-  javascript:
-    $('#education').on('click', function(evt) {
-      $(".ui.small.modal.education").modal('show');
-      return evt.preventDefault();
-    });
-    $('.edit.icon').on('click', function(evt) {
-      document.getElementById('education_details' + evt.target.id).className = "education_details hide"
-      document.getElementById('edit_education_details' + evt.target.id).className = "edit_education_details"
-    });
-    $('.button.ui.primary.gray.basic.button').on('click', function(evt) {
-      if (evt.target.style.background !== "rgb(242, 95, 66)"){
-        evt.target.style = "background: #f25f42 !important;color: white !important;";
-        if (document.getElementById('user_skills_skill').value !== ""){
-          document.getElementById('user_skills_skill').value += "," + evt.target.id;
-        }else{
-          document.getElementById('user_skills_skill').value += evt.target.id;
-        };
+javascript:
+  $('#education').on('click', function(evt) {
+    $(".ui.small.modal.education").modal('show');
+    return evt.preventDefault();
+  });
+  $('.edit.icon').on('click', function(evt) {
+    document.getElementById('education_details' + evt.target.id).className = "education_details hide"
+    document.getElementById('edit_education_details' + evt.target.id).className = "edit_education_details"
+  });
+  $('.button.ui.primary.gray.basic.button').on('click', function(evt) {
+    if (evt.target.style.background !== "rgb(242, 95, 66)"){
+      evt.target.style = "background: #f25f42 !important;color: white !important;";
+      if (document.getElementById('user_skills_skill').value !== ""){
+        document.getElementById('user_skills_skill').value += "," + evt.target.id;
       }else{
-        evt.target.style = "background: transparent !important;color:#1678c2 !important";
-        debugger
-        var skill_array = document.getElementById('user_skills_skill').value.split(",")
-        var new_array = $(skill_array).not([evt.target.id]).get();
-        document.getElementById('user_skills_skill').value = new_array;
+        document.getElementById('user_skills_skill').value += evt.target.id;
       };
-    });
-    $('#user_skill').on('click', function(evt) {
-      $(".ui.small.modal.skills").modal('show');
-      return evt.preventDefault();
-    });
+    }else{
+      evt.target.style = "background: transparent !important;color:#1678c2 !important";
+      debugger
+      var skill_array = document.getElementById('user_skills_skill').value.split(",")
+      var new_array = $(skill_array).not([evt.target.id]).get();
+      document.getElementById('user_skills_skill').value = new_array;
+    };
+  });
+  $('#user_skill').on('click', function(evt) {
+    $(".ui.small.modal.skills").modal('show');
+    return evt.preventDefault();
+  });
 

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaMIwD-73f2_FuvWcAm0olLBYwMTkR9os&libraries=places"></script>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -19,7 +20,8 @@
           </div>
           <legend>List Skills required for this job.</legend>
           <div class="form-group">
-            <%= f.text_area :skill_list, rows: 3, class: "form-control" %>
+            <!-- <%= f.text_area :skill_list, rows: 3, class: "form-control" %> -->
+            <%= f.select :skill_list, options_from_collection_for_select(Skill.all, :name, :name), {}, class: "form-control input-lg" %>
             <small class="help-block">Separate skills with a comma.</small>
           </div>
         </div>

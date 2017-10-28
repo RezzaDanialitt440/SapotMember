@@ -16,14 +16,13 @@ class UsersController < ApplicationController
       end
     end
     if params[:user_skills].present?
-      # binding.pry
       skils_array = params[:user_skills][:skill].split(",")
       skils_array.each do |user_skill|
-        current_user.user_skills.create(skill: user_skill)
+        if !current_user.user_skills.find_by(skill: user_skill).present? && user_skill.present?
+          current_user.user_skills.create(skill: user_skill)
+        end
       end
     end
-
     redirect_to profile_users_path, notice: "profile updated"
   end
-
 end

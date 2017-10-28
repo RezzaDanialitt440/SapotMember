@@ -2,7 +2,11 @@ class GigsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search, :show]
 
   def index
-    @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(12)
+    if !params[:skill_jobs]
+      @gigs = Gig.all.order_list(params[:sort_by]).page(params[:page]).per(12)
+    else
+      @gigs = Gig.joins(:skills).where(skills: {name: current_user.user_skills.pluck(:skill)}).order_list(params[:sort_by]).page(params[:page]).per(12)
+    end
     @users = User.all
   end
 

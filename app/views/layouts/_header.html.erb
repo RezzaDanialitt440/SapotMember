@@ -15,6 +15,7 @@
     <div class="collapse navbar-collapse">
       <div class="navbar-left">
       <%= link_to "Post a Job &raquo;".html_safe, new_gig_path, class: "btn btn-primary navbar-btn" %>
+      <%= link_to "Search you skills related job", gigs_path(skill_jobs: true), class: "btn btn-primary navbar-btn" %>
       </div>
 
       <ul class="nav navbar-nav navbar-right">

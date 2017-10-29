@@ -2,8 +2,8 @@ class ProposalsController < ApplicationController
 
   def create
     @gig = Gig.find(params[:gig_id])
-    @proposal = @gig.proposals.build(proposal_params)
-    @proposal.save
+    @proposal = @gig.proposals.create(proposal_params)
+    @proposal.update(user_id: current_user.id)
     redirect_to @proposal.gig
   end
 

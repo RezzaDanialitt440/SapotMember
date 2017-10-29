@@ -17,10 +17,9 @@ class UsersController < ApplicationController
     end
     if params[:user_skills].present?
       skils_array = params[:user_skills][:skill].split(",")
+      current_user.user_skills.destroy_all
       skils_array.each do |user_skill|
-        if !current_user.user_skills.find_by(skill: user_skill).present? && user_skill.present?
-          current_user.user_skills.create(skill: user_skill)
-        end
+        current_user.user_skills.create(skill: user_skill)
       end
     end
     redirect_to profile_users_path, notice: "profile updated"

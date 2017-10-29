@@ -5,13 +5,15 @@
         <small><%= link_to "&larr; All Jobs".html_safe, search_gigs_path %></small>
       </span>
     </h2>
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-8"  style="background: white;padding: 40px;">
       <h3><%= @gig.name %></h3>
       <p><i class="glyphicon glyphicon-calendar"></i> <%= @gig.created_at.strftime("%b %d, %Y") %> | <i class="glyphicon glyphicon-map-marker"></i> <%= @gig.location %> | <span class="label label-success"><%= number_to_currency(@gig.budget, precision: 0) %></span></p>
       <br>
-      <legend>Description</legend>
+      <h2 style="margin-top: -24px;">Description</h2>
+      <div class="ui divider"></div>
       <p><%= @gig.description %></p>
-      <legend>Skills Wanted</legend>
+      <h2>Skills Wanted</h2>
+      <div class="ui divider"></div>
       <ul>
         <% @gig.skills.each do |skill| %>
           <li><%= skill.name %></li>
@@ -19,7 +21,8 @@
       </ul>
     </div>
     <div class="col-xs-12 col-md-4">
-      <legend>Submit a Proposal</legend>
+      <h2>Submit a Proposal</h2>
+      <div class="ui divider"></div>
       <% if user_signed_in? && @gig.user != current_user %>
         <%= form_for :proposal, url: gig_proposals_path(@gig) do |f| %>
         <div class="row">
